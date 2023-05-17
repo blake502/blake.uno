@@ -242,7 +242,7 @@ function refreshCSS()
     var taskbarButtonSelectedBackgroundCSS = "url(img/taskbarButtonIcon.png) no-repeat top left, url(img/taskbarButtonSelectedLeft.png) no-repeat left, url(img/taskbarButtonSelectedRight.png) no-repeat right, url(img/taskbarButtonSelected.png) repeat-x";
     var taskbarButtonUnselectedBackgroundCSS = "url(img/taskbarButtonIcon.png) no-repeat top left, url(img/taskbarButtonLeft.png) no-repeat left, url(img/taskbarButtonRight.png) no-repeat right, url(img/taskbarButton.png) repeat-x";
 
-    //Set color to blue of header on focused window
+    //Set header color to blue on focused window
     var windowHeaders = document.getElementsByClassName("windowHeader");
     for(var i = 0; i < windowHeaders.length; i++)
     {

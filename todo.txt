@@ -1,0 +1,5 @@
+Window Re-Sizing
+Minimize/Maximize buttons
+File Explorer
+Terminal
+Clock/System Tray
