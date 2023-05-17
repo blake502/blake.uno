@@ -1,0 +1,228 @@
+body { 
+	background: #008080;
+	background-size: auto;
+    background-position-x: center;
+	margin: 0px;
+	font-family: 'Roboto Mono', monospace;
+    user-select: none;
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	right:0%;
+	bottom: 0%;
+}
+
+main{
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	right:0%;
+	bottom: 0%;
+	display: grid;
+	grid-template-areas:
+		"topBar"
+		"desktop"
+		"taskbar";
+	grid-template-columns: auto;
+	grid-template-rows: 28px auto 28px;
+	overflow:hidden;
+}
+
+#desktop{
+	grid-area: desktop;
+}
+
+#desktopIcons{
+	color: white;
+}
+
+.fileIconContainer{
+	top: 0%;
+	left: 0%;
+	right: 0%;
+	bottom: 0%;
+	display: flex;
+	flex-direction: column;
+	color: black;
+}
+
+.fileIcon{
+	font-size: 10px;
+	margin: 6px;
+	padding-top: 36px;
+	width: 66px;
+	height: 18px;
+	background: url(img/terminalIcon.png) no-repeat;
+	text-align: center;
+}
+
+#virusIcon{
+	background: url(img/virusIcon.png) no-repeat;
+}
+
+.folderIcon{
+	background: url(img/folderIcon.png) no-repeat;
+}
+
+.window{
+	background:
+	url(img/windowBorderTopLeft.png) no-repeat top left,
+	url(img/windowBorderTopRight.png) no-repeat top right,
+	url(img/windowBorderBottomLeft.png) no-repeat bottom left,
+	url(img/windowBorderBottomRight.png) no-repeat bottom right,
+	url(img/windowBorderTop.png) repeat-x top,
+	url(img/windowBorderBottom.png) repeat-x bottom,
+	url(img/windowBorderLeft.png) repeat-y left,
+	url(img/windowBorderRight.png) repeat-y right;
+	background-color: #c3c3c3;
+	position: absolute;
+	padding: 3px;
+	margin: 6px;
+	z-index: 1;
+	width: 256px;
+}
+
+.windowHeader{
+	background: url(img/windowHeaderX.png) no-repeat top right;
+	background-color: #000082;
+	color: #ffffff;
+	padding-left: 3px;
+	padding-right: 55px;
+	height: 18px;
+	white-space: nowrap;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.button{
+	background:
+	url(img/buttonTopLeft.png) no-repeat top left,
+	url(img/buttonTopRight.png) no-repeat top right,
+	url(img/buttonBottomLeft.png) no-repeat bottom left,
+	url(img/buttonBottomRight.png) no-repeat bottom right,
+	url(img/buttonTop.png) repeat-x top,
+	url(img/buttonBottom.png) repeat-x bottom,
+	url(img/buttonLeft.png) repeat-y left,
+	url(img/buttonRight.png) repeat-y right;
+	background-color: #c3c3c3;
+	padding: 5px;
+	margin: 3px;
+	width: min-content;
+}
+
+
+#taskbar{
+	grid-area: taskbar;
+	background: url(img/taskbar.png);
+	display: flex;
+	flex-direction: row;
+	gap: 3px;
+}
+
+.taskbarButton{
+	bottom: 2px;
+	width: 160px;
+	height: 22px;
+	margin-top: 4px;
+	padding-left: 23px;
+	background: url(img/taskbarButtonIcon.png) no-repeat top left,
+	url(img/taskbarButtonSelectedLeft.png) no-repeat left,
+	url(img/taskbarButtonSelectedRight.png) no-repeat right,
+	url(img/taskbarButtonSelected.png) repeat-x;
+}
+
+#startButton{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	margin-top: 4px;
+	padding: 0px;
+	padding-left: 22px;
+	padding-top: 4px;
+	margin-left: 0px;
+	background: url(img/startButton.png) no-repeat;
+	font-size: 10px;
+	width: 54px;
+	height: 22px;
+	font-weight: bold;
+}
+
+#startMenu{
+	background:
+	url(img/windowBorderTopLeft.png) no-repeat top left,
+	url(img/windowBorderTopRight.png) no-repeat top right,
+	url(img/windowBorderBottomLeft.png) no-repeat bottom left,
+	url(img/windowBorderBottomRight.png) no-repeat bottom right,
+	url(img/windowBorderTop.png) repeat-x top,
+	url(img/windowBorderBottom.png) repeat-x bottom,
+	url(img/windowBorderLeft.png) repeat-y left,
+	url(img/windowBorderRight.png) repeat-y right;
+	background-color: #c3c3c3;
+	position: absolute;
+	margin-left: 2px;
+	margin-bottom: -4px;
+	z-index: 888;
+	/*
+	height: 249px;
+	*/
+	width: 164px;
+	bottom: 28px;
+	display: none;
+}
+
+.startMenuOption{
+	height: 32px;
+	margin-left: 21px;
+	padding: 2px;
+	width: 137px;
+	background-color: #c3c3c3;
+}
+
+.console
+{
+	margin: 2px;
+	margin-top: 4px;
+	padding: 4px;
+	flex-grow : 1;
+	background:
+	url(img/consoleTopLeft.png) no-repeat top left,
+	url(img/consoleTopRight.png) no-repeat top right,
+	url(img/consoleBottomLeft.png) no-repeat bottom left,
+	url(img/consoleBottomRight.png) no-repeat bottom right,
+	url(img/consoleTop.png) repeat-x top,
+	url(img/consoleBottom.png) repeat-x bottom,
+	url(img/consoleLeft.png) repeat-y left,
+	url(img/consoleRight.png) repeat-y right;
+	background-color: #000;
+	color: #ffffff;
+	height: 256;
+}
+
+.fileViewer
+{
+	margin: 2px;
+	margin-top: 4px;
+	padding: 4px;
+	flex-grow : 1;
+	background:
+	url(img/consoleTopLeft.png) no-repeat top left,
+	url(img/consoleTopRight.png) no-repeat top right,
+	url(img/consoleBottomLeft.png) no-repeat bottom left,
+	url(img/consoleBottomRight.png) no-repeat bottom right,
+	url(img/consoleTop.png) repeat-x top,
+	url(img/consoleBottom.png) repeat-x bottom,
+	url(img/consoleLeft.png) repeat-y left,
+	url(img/consoleRight.png) repeat-y right;
+	background-color: #ffffff;
+	color: #000;
+	height: 256;
+}
+
+
+
+#topBar{
+	grid-area: topBar;
+	background: #000;
+	color: white;
+	padding: 4px;
+}
