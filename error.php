@@ -16,7 +16,7 @@ body {
 	<body>
         Oh gee, you've ended up somewhere you shouldn't have.
         </br>
-        Send an email to: <a href="mailto:blake@blake.uno">blake@blake.uno</a> with the following error:
+        Send an email to: <a href="mailto:error@blake.uno">error@blake.uno</a> with the following error:
         </br>
         Error <?php echo $_GET["e"];?> 
 	</body>
