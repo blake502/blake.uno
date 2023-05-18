@@ -146,6 +146,7 @@ function onmousedown(args)
                 //Ensure focus
                 bringToFocus(windowGrabbed);
 
+                //TODO: Redo
                 //Hardcoded detection for clicking the "X"
                 if (dragOffsetX > 2 && dragOffsetY > 2 && dragOffsetX < 2 + 16 && dragOffsetY < 2 + 15)
                 {
