@@ -5,7 +5,7 @@ This is not production level code, please look no further.
 //Entry point
 window.onload = function(){
     //Element variables
-    taskbarElement = document.getElementById("taskbar");
+    taskbarElement = document.getElementsByTagName("footer")[0];
     desktopElement = document.getElementById("desktop");
     startMenuElem  = document.getElementById("startMenu");
 
