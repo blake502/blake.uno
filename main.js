@@ -74,7 +74,7 @@ window.onload = function(){
     document.getElementById("virus_icon").onclick = function()
     {
         //Create a window
-        var window = createWindow("Virus Alert!", "Hi, I am a foreign virus but because of poor technology in my country unfortunately I am not able to harm your computer. Please be so kind to delete one of your important files yourself and then forward me to other users. Many thanks for your cooperation! Best regards, foreign virus");
+        var window = createWindow("Virus Alert!", "<div class=\"file_viewer\">Hi, I am a foreign virus but because of poor technology in my country unfortunately I am not able to harm your computer. Please be so kind to delete one of your important files yourself and then forward me to other users. Many thanks for your cooperation! Best regards, foreign virus</div>");
         
         var flexButtons = document.createElement("div");
         flexButtons.style.display = "flex";
