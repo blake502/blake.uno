@@ -2,12 +2,44 @@
 This is not production level code, please look no further.
 */
 
+//Constants
+//CSS
+//Borders
+const border_button = "url(img/border/button/top_left.png) no-repeat top left, url(img/border/button/top_right.png) no-repeat top right, url(img/border/button/bottom_left.png) no-repeat bottom left, url(img/border/button/bottom_right.png) no-repeat bottom right, url(img/border/button/top.png) repeat-x top, url(img/border/button/bottom.png) repeat-x bottom, url(img/border/button/left.png) repeat-y left, url(img/border/button/right.png) repeat-y right, #c3c3c3";
+const border_button_pressed = "url(img/border/button_pressed/top_left.png) no-repeat top left, url(img/border/button_pressed/top_right.png) no-repeat top right, url(img/border/button_pressed/bottom_left.png) no-repeat bottom left, url(img/border/button_pressed/bottom_right.png) no-repeat bottom right, url(img/border/button_pressed/top.png) repeat-x top, url(img/border/button_pressed/bottom.png) repeat-x bottom, url(img/border/button_pressed/left.png) repeat-y left, url(img/border/button_pressed/right.png) repeat-y right, url(img/border/button_pressed/top_left.png) no-repeat top left, url(img/border/button_pressed/background.png) repeat";
+const border_button_pressed_selected = "url(img/border/button_pressed_selected/top_left.png) no-repeat top left, url(img/border/button_pressed_selected/top_right.png) no-repeat top right, url(img/border/button_pressed_selected/bottom_left.png) no-repeat bottom left, url(img/border/button_pressed_selected/bottom_right.png) no-repeat bottom right, url(img/border/button_pressed_selected/top.png) repeat-x top, url(img/border/button_pressed_selected/bottom.png) repeat-x bottom, url(img/border/button_pressed_selected/left.png) repeat-y left, url(img/border/button_pressed_selected/right.png) repeat-y right, url(img/border/button_pressed_selected/top_left.png) no-repeat top left, url(img/border/button_pressed_selected/background.png) repeat";
+const border_button_selected = "url(img/border/button_selected/top_left.png) no-repeat top left, url(img/border/button_selected/top_right.png) no-repeat top right, url(img/border/button_selected/bottom_left.png) no-repeat bottom left, url(img/border/button_selected/bottom_right.png) no-repeat bottom right, url(img/border/button_selected/top.png) repeat-x top, url(img/border/button_selected/bottom.png) repeat-x bottom, url(img/border/button_selected/left.png) repeat-y left, url(img/border/button_selected/right.png) repeat-y right, url(img/border/button_selected/top_left.png) no-repeat top left, #c3c3c3";
+const border_content_thick = "url(img/border/content_thick/top_left.png) no-repeat top left, url(img/border/content_thick/top_right.png) no-repeat top right, url(img/border/content_thick/bottom_left.png) no-repeat bottom left, url(img/border/content_thick/bottom_right.png) no-repeat bottom right, url(img/border/content_thick/top.png) repeat-x top, url(img/border/content_thick/bottom.png) repeat-x bottom, url(img/border/content_thick/left.png) repeat-y left, url(img/border/content_thick/right.png) repeat-y right";
+const border_content_thin = "url(img/border/content_thin/top_left.png) no-repeat top left, url(img/border/content_thin/top_right.png) no-repeat top right, url(img/border/content_thin/bottom_left.png) no-repeat bottom left, url(img/border/content_thin/bottom_right.png) no-repeat bottom right, url(img/border/content_thin/top.png) repeat-x top, url(img/border/content_thin/bottom.png) repeat-x bottom, url(img/border/content_thin/left.png) repeat-y left, url(img/border/content_thin/right.png) repeat-y right";
+const border_window = "url(img/border/window/top_left.png) no-repeat top left, url(img/border/window/top_right.png) no-repeat top right, url(img/border/window/bottom_left.png) no-repeat bottom left, url(img/border/window/bottom_right.png) no-repeat bottom right, url(img/border/window/top.png) repeat-x top, url(img/border/window/bottom.png) repeat-x bottom, url(img/border/window/left.png) repeat-y left, url(img/border/window/right.png) repeat-y right, #c3c3c3";
+
+
+var isStatMenuUp = false;
+
+//Desktop
+//Desktop Variables
+var taskbar_element;
+var desktop_element;
+var start_menu_element;
+var start_button;
+
+//I don't know why i bothered with this one, it doesn't even work
+var windowPadding = 3;
+
+//Windows
+//Window Variables
+//Drag
+var windowGrabbed = null;
+var dragOffsetX = 0;
+var dragOffsetY = 0;
+
 //Entry point
 window.onload = function(){
     //Element variables
     taskbarElement = document.getElementsByTagName("footer")[0];
     desktopElement = document.getElementById("desktop");
-    startMenuElem  = document.getElementById("startMenu");
+    startMenuElem  = document.getElementById("start_menu");
+    startButton = document.getElementById("start_button");
 
     //Mouse hooks
     document.onmouseup = onmouseup;
@@ -15,7 +47,7 @@ window.onload = function(){
     document.onmousemove = onmousemove;
 
     //enter/leave CSS updates
-    var startMenuOptions = document.getElementsByClassName("startMenuOption");
+    var startMenuOptions = document.getElementsByClassName("start_menu_option");
     for (var i = 0; i< startMenuOptions.length; i++)
     {
         var startMenuOption = startMenuOptions[i];
@@ -32,14 +64,14 @@ window.onload = function(){
     }
 
     //desktopIcon test code
-    document.getElementById("terminalIcon").onclick = function()
+    document.getElementById("terminal_icon").onclick = function()
     {
         //Create a window
         createWindow("Terminal", "File Edit View Help<br><div class=\"console\">C:\\>_<br><br><br></div>");
     }
 
     //desktopIcon test code
-    document.getElementById("virusIcon").onclick = function()
+    document.getElementById("virus_icon").onclick = function()
     {
         //Create a window
         var window = createWindow("Virus Alert!", "Hi, I am a foreign virus but because of poor technology in my country unfortunately I am not able to harm your computer. Please be so kind to delete one of your important files yourself and then forward me to other users. Many thanks for your cooperation! Best regards, foreign virus");
@@ -75,29 +107,28 @@ window.onload = function(){
         window.appendChild(flexButtons);
     }
 
-    
     //desktopIcon test code
-    document.getElementById("programmingFolder").onclick = function()
+    document.getElementById("programming_folder_icon").onclick = function()
     {
         //Create a window
         var window = createWindow("Programming", "File Edit View Help");
 
         var fileViewer = document.createElement("div");
-        fileViewer.className = "fileViewer";
+        fileViewer.className = "file_viewer";
 
         var fileIconContainer = document.createElement("div");
-        fileIconContainer.className = "fileIconContainer";
+        fileIconContainer.className = "file_icon_container";
 
         var fileIcon = document.createElement("div");
-        fileIcon.className = "fileIcon folderIcon";
+        fileIcon.className = "file_icon folder_icon";
         fileIcon.innerText = "it's";
 
         var fileIcon2 = document.createElement("div");
-        fileIcon2.className = "fileIcon folderIcon";
+        fileIcon2.className = "file_icon folder_icon";
         fileIcon2.innerText = "not";
 
         var fileIcon3 = document.createElement("div");
-        fileIcon3.className = "fileIcon folderIcon";
+        fileIcon3.className = "file_icon folder_icon";
         fileIcon3.innerText = "finished";
 
         fileIconContainer.appendChild(fileIcon);
@@ -107,7 +138,6 @@ window.onload = function(){
         window.appendChild(fileViewer);
     }
 }
-
 
 function onmouseup()
 {
@@ -134,7 +164,7 @@ function onmousedown(args)
                     closeWindow(createWindow("",""));
                 }
                 break;
-            case "windowHeader":
+            case "window_header":
                 //Grab the window
                 windowGrabbed = element.parentElement;
                 
@@ -156,9 +186,14 @@ function onmousedown(args)
                 }
                 break;
 
-            case "taskbarButton":
-                //Special case for startButton
-                if (element.id == "startButton")
+            case "button":
+                element.style.background = border_button_pressed_selected;
+                return true;
+                break;
+
+            case "taskbar_button":
+                //Special case for start_button
+                if (element.id == "start_button")
                 {
                     //TODO
                     toggleStartMenu();
@@ -181,8 +216,6 @@ function onmousedown(args)
     }
 }
 
-var isStatMenuUp = false;
-var startMenuElem;
 function toggleStartMenu()
 {
     isStatMenuUp = !isStatMenuUp;
@@ -190,10 +223,12 @@ function toggleStartMenu()
     if(isStatMenuUp)
     {
         startMenuElem.style.display = "block";
+        startButton.style.background = border_button_selected;
     }
     else
     {
         startMenuElem.style.display = "none";
+        startButton.style.background = border_button;
     }
 }
 
@@ -207,20 +242,6 @@ function onmousemove(args)
         windowGrabbed.style.top = (args.y - dragOffsetY - windowPadding) + "px";
     }
 }
-
-//Desktop
-//Desktop Variables
-var taskbarElement;
-var desktopElement;
-//I don't know why i bothered with this one, it doesn't even work
-var windowPadding = 3;
-
-//Windows
-//Window Variables
-//Drag
-var windowGrabbed = null;
-var dragOffsetX = 0;
-var dragOffsetY = 0;
 
 //Window functions
 function minimize(window)
@@ -240,11 +261,9 @@ function refreshCSS()
 {
     //Oh Boy
     //todo redo
-    var taskbarButtonSelectedBackgroundCSS = "url(img/taskbarButtonIcon.png) no-repeat top left, url(img/taskbarButtonSelectedLeft.png) no-repeat left, url(img/taskbarButtonSelectedRight.png) no-repeat right, url(img/taskbarButtonSelected.png) repeat-x";
-    var taskbarButtonUnselectedBackgroundCSS = "url(img/taskbarButtonIcon.png) no-repeat top left, url(img/taskbarButtonLeft.png) no-repeat left, url(img/taskbarButtonRight.png) no-repeat right, url(img/taskbarButton.png) repeat-x";
 
     //Set header color to blue on focused window
-    var windowHeaders = document.getElementsByClassName("windowHeader");
+    var windowHeaders = document.getElementsByClassName("window_header");
     for(var i = 0; i < windowHeaders.length; i++)
     {
         var windowHeader = windowHeaders[i];
@@ -253,12 +272,12 @@ function refreshCSS()
         if (isInFocus(windowHeader.window))
         {
             windowHeader.style.backgroundColor = "#000082";
-            windowHeader.window.taskbarButton.style.background = taskbarButtonSelectedBackgroundCSS;
+            windowHeader.window.taskbarButton.style.background = border_button_pressed;
         }
         else
         {
             windowHeader.style.backgroundColor = "#808080";
-            windowHeader.window.taskbarButton.style.background = taskbarButtonUnselectedBackgroundCSS;
+            windowHeader.window.taskbarButton.style.background = border_button;
         }
     }
 
@@ -358,7 +377,7 @@ function createWindow(title, content, x = "", y = "", width = "", height = "")
 
     //Create windowHeader element
     var windowHeader = document.createElement("div");
-    windowHeader.className = "windowHeader";
+    windowHeader.className = "window_header";
 
     //Create cross references between the window and windowHeader
     window.windowHeader = windowHeader;
@@ -375,7 +394,7 @@ function createWindow(title, content, x = "", y = "", width = "", height = "")
 
     //Creat the taskbarButton
     var taskbarButton = document.createElement("div");
-    taskbarButton.className = "taskbarButton";
+    taskbarButton.className = "taskbar_button";
 
     //Set the taskbarButton text to the window title
     taskbarButton.innerText = title;

@@ -54,14 +54,7 @@ footer{
 	gap: 3px;
 
 	background:
-	url(img/border/window/top_left.png) no-repeat top left,
-	url(img/border/window/top_right.png) no-repeat top right,
-	url(img/border/window/bottom_left.png) no-repeat bottom left,
-	url(img/border/window/bottom_right.png) no-repeat bottom right,
 	url(img/border/window/top.png) repeat-x top,
-	url(img/border/window/bottom.png) repeat-x bottom,
-	url(img/border/window/left.png) repeat-y left,
-	url(img/border/window/right.png) repeat-y right,
 	#c3c3c3;
 
 	position: absolute;
@@ -71,12 +64,12 @@ footer{
 	height: 28px;
 }
 
-#desktopIcons{
+#desktop_icons{
 	grid-area: desktop_icons;
 	color: white;
 }
 
-.fileIconContainer{
+.file_icon_container{
 	top: 0%;
 	left: 0%;
 	right: 0%;
@@ -86,7 +79,7 @@ footer{
 	color: black;
 }
 
-.fileIcon{
+.file_icon{
 	font-size: 10px;
 	margin: 6px;
 	padding-top: 36px;
@@ -96,11 +89,11 @@ footer{
 	text-align: center;
 }
 
-#virusIcon{
+#virus_icon{
 	background: url(img/virusIcon.png) no-repeat;
 }
 
-.folderIcon{
+.folder_icon{
 	background: url(img/folderIcon.png) no-repeat;
 }
 
@@ -122,7 +115,7 @@ footer{
 	width: 256px;
 }
 
-.windowHeader{
+.window_header{
 	background: url(img/windowHeaderX.png) no-repeat top right;
 	background-color: #000082;
 	color: #ffffff;
@@ -150,7 +143,7 @@ footer{
 	width: min-content;
 }
 
-.taskbarButton{
+.taskbar_button{
 	bottom: 2px;
 	width: 160px;
 	height: 22px;
@@ -168,7 +161,7 @@ footer{
 	#c3c3c3;
 }
 
-#startButton{
+#start_button{
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -176,15 +169,25 @@ footer{
 	padding: 0px;
 	padding-left: 22px;
 	padding-top: 4px;
-	margin-left: 0px;
-	background: url(img/startButton.png) no-repeat;
+	margin-left: 2px;
+	background:
+	url(img/border/button/top_left.png) no-repeat top left,
+	url(img/border/button/top_right.png) no-repeat top right,
+	url(img/border/button/bottom_left.png) no-repeat bottom left,
+	url(img/border/button/bottom_right.png) no-repeat bottom right,
+	url(img/border/button/top.png) repeat-x top,
+	url(img/border/button/bottom.png) repeat-x bottom,
+	url(img/border/button/left.png) repeat-y left,
+	url(img/border/button/right.png) repeat-y right,
+	#c3c3c3;
+	border-radius: 2px;
 	font-size: 10px;
 	width: 54px;
 	height: 22px;
 	font-weight: bold;
 }
 
-#startMenu{
+#start_menu{
 	background:
 	url(img/border/window/top_left.png) no-repeat top left,
 	url(img/border/window/top_right.png) no-repeat top right,
@@ -207,7 +210,7 @@ footer{
 	display: none;
 }
 
-.startMenuOption{
+.start_menu_option{
 	height: 32px;
 	margin-left: 21px;
 	padding: 2px;
@@ -235,7 +238,7 @@ footer{
 	height: 256px;
 }
 
-.fileViewer
+.file_viewer
 {
 	margin: 2px;
 	margin-top: 4px;
@@ -254,6 +257,3 @@ footer{
 	color: #000;
 	height: 256;
 }
-
-
-
