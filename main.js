@@ -187,8 +187,8 @@ function onmousedown(args)
                 break;
 
             case "button":
-                element.style.background = border_button_pressed_selected;
-                return true;
+                //element.style.background = border_button_pressed_selected;
+                //return true;
                 break;
 
             case "taskbar_button":

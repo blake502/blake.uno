@@ -143,6 +143,20 @@ footer{
 	width: min-content;
 }
 
+.button:active{
+	background: 
+	url(img/border/button_pressed/top_left.png) no-repeat top left,
+	url(img/border/button_pressed/top_right.png) no-repeat top right,
+	url(img/border/button_pressed/bottom_left.png) no-repeat bottom left,
+	url(img/border/button_pressed/bottom_right.png) no-repeat bottom right,
+	url(img/border/button_pressed/top.png) repeat-x top,
+	url(img/border/button_pressed/bottom.png) repeat-x bottom,
+	url(img/border/button_pressed/left.png) repeat-y left,
+	url(img/border/button_pressed/right.png) repeat-y right,
+	url(img/border/button_pressed/top_left.png) no-repeat top left,
+	url(img/border/button_pressed/background.png) repeat
+}
+
 .taskbar_button{
 	bottom: 2px;
 	width: 160px;
