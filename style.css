@@ -85,16 +85,20 @@ footer{
 	padding-top: 36px;
 	width: 66px;
 	height: 18px;
-	background: url(img/terminalIcon.png) no-repeat;
+	background: url(img/icon/notepad.png) no-repeat 50% 0px;
 	text-align: center;
 }
 
+#terminal_icon{
+	background: url(img/icon/computer.png) no-repeat 50% 0px;
+}
+
 #virus_icon{
-	background: url(img/virusIcon.png) no-repeat;
+	background: url(img/icon/virus.png) no-repeat 50% 0px;
 }
 
 .folder_icon{
-	background: url(img/folderIcon.png) no-repeat;
+	background: url(img/icon/folder.png) no-repeat 50% 0px;
 }
 
 .window{

@@ -13,7 +13,6 @@ const border_content_thick = "url(img/border/content_thick/top_left.png) no-repe
 const border_content_thin = "url(img/border/content_thin/top_left.png) no-repeat top left, url(img/border/content_thin/top_right.png) no-repeat top right, url(img/border/content_thin/bottom_left.png) no-repeat bottom left, url(img/border/content_thin/bottom_right.png) no-repeat bottom right, url(img/border/content_thin/top.png) repeat-x top, url(img/border/content_thin/bottom.png) repeat-x bottom, url(img/border/content_thin/left.png) repeat-y left, url(img/border/content_thin/right.png) repeat-y right";
 const border_window = "url(img/border/window/top_left.png) no-repeat top left, url(img/border/window/top_right.png) no-repeat top right, url(img/border/window/bottom_left.png) no-repeat bottom left, url(img/border/window/bottom_right.png) no-repeat bottom right, url(img/border/window/top.png) repeat-x top, url(img/border/window/bottom.png) repeat-x bottom, url(img/border/window/left.png) repeat-y left, url(img/border/window/right.png) repeat-y right, #c3c3c3";
 
-
 var isStatMenuUp = false;
 
 //Desktop
@@ -121,19 +120,29 @@ window.onload = function(){
 
         var fileIcon = document.createElement("div");
         fileIcon.className = "file_icon folder_icon";
-        fileIcon.innerText = "it's";
+        fileIcon.innerText = "C";
 
         var fileIcon2 = document.createElement("div");
         fileIcon2.className = "file_icon folder_icon";
-        fileIcon2.innerText = "not";
+        fileIcon2.innerText = "C#";
 
         var fileIcon3 = document.createElement("div");
         fileIcon3.className = "file_icon folder_icon";
-        fileIcon3.innerText = "finished";
+        fileIcon3.innerText = "JavaScript";
+
+        var fileIcon4 = document.createElement("div");
+        fileIcon4.className = "file_icon folder_icon";
+        fileIcon4.innerText = "Web";
+
+        var fileIcon5 = document.createElement("div");
+        fileIcon5.className = "file_icon";
+        fileIcon5.innerText = "(it's not finished).txt";
 
         fileIconContainer.appendChild(fileIcon);
         fileIconContainer.appendChild(fileIcon2);
         fileIconContainer.appendChild(fileIcon3);
+        fileIconContainer.appendChild(fileIcon4);
+        fileIconContainer.appendChild(fileIcon5);
         fileViewer.appendChild(fileIconContainer);
         window.appendChild(fileViewer);
     }
