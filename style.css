@@ -1,45 +1,75 @@
-/*
-YIKES
-*/
 body { 
-	background: #008080;
-	background-size: auto;
-    background-position-x: center;
-	margin: 0px;
-	font-family: 'Roboto Mono', monospace;
-    user-select: none;
-	position: absolute;
+	background: #008080; /* Default Windows 95 Background color */
+    user-select: none; /* Prevents drag & drop/text selection */
+	/* background-size: auto; */
+    /* background-position-x: center; */
+	/* margin: 0px; */
+	/* font-family: 'Roboto Mono', monospace; */
+	/* position: absolute;
 	left: 0%;
 	top: 0%;
 	right:0%;
-	bottom: 0%;
+	bottom: 0%; */
 }
 
+/* The "main" element is "grid" display to separate the header from the desktop. */
 main{
+	/* Fullscreen */
 	position: absolute;
 	left: 0%;
 	top: 0%;
-	right:0%;
+	right: 0%;
 	bottom: 0%;
+	
 	display: grid;
 	grid-template-areas:
-		"topBar"
-		"desktop"
-		"taskbar";
-	grid-template-columns: auto;
-	grid-template-rows: 28px auto 28px;
-	overflow:hidden;
+		"header"
+		"desktop";
+	grid-template-rows: 28px auto; /* Gives 28px to the header, the rest is for the desktop */
+	grid-template-columns: 100%;
+	/* overflow: hidden; */
+}
+
+header{
+	grid-area: header;
+	background: #000;
+	color: white;
+	padding: 4px;
+	text-align: center;
 }
 
 #desktop{
 	grid-area: desktop;
+	display: grid;
+	grid-template-areas:
+		"desktop_icons"
+		"taskbar";
+		grid-template-rows: auto 28px;
 }
 
-#desktopIcons{
+footer{
+	grid-area: taskbar;
+	display: flex;
+	flex-direction: row;
+	gap: 3px;
+
+	background:
+	url(img/border/window/top.png) repeat-x top,
+	#c3c3c3;
+
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 28px;
+}
+
+#desktop_icons{
+	grid-area: desktop_icons;
 	color: white;
 }
 
-.fileIconContainer{
+.file_icon_container{
 	top: 0%;
 	left: 0%;
 	right: 0%;
@@ -49,35 +79,39 @@ main{
 	color: black;
 }
 
-.fileIcon{
+.file_icon{
 	font-size: 10px;
 	margin: 6px;
 	padding-top: 36px;
 	width: 66px;
 	height: 18px;
-	background: url(img/terminalIcon.png) no-repeat;
+	background: url(img/icon/notepad.png) no-repeat 50% 0px;
 	text-align: center;
 }
 
-#virusIcon{
-	background: url(img/virusIcon.png) no-repeat;
+#terminal_icon{
+	background: url(img/icon/computer.png) no-repeat 50% 0px;
 }
 
-.folderIcon{
-	background: url(img/folderIcon.png) no-repeat;
+#virus_icon{
+	background: url(img/icon/virus.png) no-repeat 50% 0px;
+}
+
+.folder_icon{
+	background: url(img/icon/folder.png) no-repeat 50% 0px;
 }
 
 .window{
 	background:
-	url(img/windowBorderTopLeft.png) no-repeat top left,
-	url(img/windowBorderTopRight.png) no-repeat top right,
-	url(img/windowBorderBottomLeft.png) no-repeat bottom left,
-	url(img/windowBorderBottomRight.png) no-repeat bottom right,
-	url(img/windowBorderTop.png) repeat-x top,
-	url(img/windowBorderBottom.png) repeat-x bottom,
-	url(img/windowBorderLeft.png) repeat-y left,
-	url(img/windowBorderRight.png) repeat-y right;
-	background-color: #c3c3c3;
+	url(img/border/window/top_left.png) no-repeat top left,
+	url(img/border/window/top_right.png) no-repeat top right,
+	url(img/border/window/bottom_left.png) no-repeat bottom left,
+	url(img/border/window/bottom_right.png) no-repeat bottom right,
+	url(img/border/window/top.png) repeat-x top,
+	url(img/border/window/bottom.png) repeat-x bottom,
+	url(img/border/window/left.png) repeat-y left,
+	url(img/border/window/right.png) repeat-y right,
+	#c3c3c3;
 	position: absolute;
 	padding: 3px;
 	margin: 6px;
@@ -85,7 +119,7 @@ main{
 	width: 256px;
 }
 
-.windowHeader{
+.window_header{
 	background: url(img/windowHeaderX.png) no-repeat top right;
 	background-color: #000082;
 	color: #ffffff;
@@ -99,42 +133,53 @@ main{
 
 .button{
 	background:
-	url(img/buttonTopLeft.png) no-repeat top left,
-	url(img/buttonTopRight.png) no-repeat top right,
-	url(img/buttonBottomLeft.png) no-repeat bottom left,
-	url(img/buttonBottomRight.png) no-repeat bottom right,
-	url(img/buttonTop.png) repeat-x top,
-	url(img/buttonBottom.png) repeat-x bottom,
-	url(img/buttonLeft.png) repeat-y left,
-	url(img/buttonRight.png) repeat-y right;
+	url(img/border/button/top_left.png) no-repeat top left,
+	url(img/border/button/top_right.png) no-repeat top right,
+	url(img/border/button/bottom_left.png) no-repeat bottom left,
+	url(img/border/button/bottom_right.png) no-repeat bottom right,
+	url(img/border/button/top.png) repeat-x top,
+	url(img/border/button/bottom.png) repeat-x bottom,
+	url(img/border/button/left.png) repeat-y left,
+	url(img/border/button/right.png) repeat-y right;
 	background-color: #c3c3c3;
 	padding: 5px;
 	margin: 3px;
 	width: min-content;
 }
 
-
-#taskbar{
-	grid-area: taskbar;
-	background: url(img/taskbar.png);
-	display: flex;
-	flex-direction: row;
-	gap: 3px;
+.button:active{
+	background: 
+	url(img/border/button_pressed/top_left.png) no-repeat top left,
+	url(img/border/button_pressed/top_right.png) no-repeat top right,
+	url(img/border/button_pressed/bottom_left.png) no-repeat bottom left,
+	url(img/border/button_pressed/bottom_right.png) no-repeat bottom right,
+	url(img/border/button_pressed/top.png) repeat-x top,
+	url(img/border/button_pressed/bottom.png) repeat-x bottom,
+	url(img/border/button_pressed/left.png) repeat-y left,
+	url(img/border/button_pressed/right.png) repeat-y right,
+	url(img/border/button_pressed/top_left.png) no-repeat top left,
+	url(img/border/button_pressed/background.png) repeat
 }
 
-.taskbarButton{
+.taskbar_button{
 	bottom: 2px;
 	width: 160px;
 	height: 22px;
 	margin-top: 4px;
 	padding-left: 23px;
-	background: url(img/taskbarButtonIcon.png) no-repeat top left,
-	url(img/taskbarButtonSelectedLeft.png) no-repeat left,
-	url(img/taskbarButtonSelectedRight.png) no-repeat right,
-	url(img/taskbarButtonSelected.png) repeat-x;
+	background:
+	url(img/border/button/top_left.png) no-repeat top left,
+	url(img/border/button/top_right.png) no-repeat top right,
+	url(img/border/button/bottom_left.png) no-repeat bottom left,
+	url(img/border/button/bottom_right.png) no-repeat bottom right,
+	url(img/border/button/top.png) repeat-x top,
+	url(img/border/button/bottom.png) repeat-x bottom,
+	url(img/border/button/left.png) repeat-y left,
+	url(img/border/button/right.png) repeat-y right,
+	#c3c3c3;
 }
 
-#startButton{
+#start_button{
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -142,25 +187,35 @@ main{
 	padding: 0px;
 	padding-left: 22px;
 	padding-top: 4px;
-	margin-left: 0px;
-	background: url(img/startButton.png) no-repeat;
+	margin-left: 2px;
+	background:
+	url(img/border/button/top_left.png) no-repeat top left,
+	url(img/border/button/top_right.png) no-repeat top right,
+	url(img/border/button/bottom_left.png) no-repeat bottom left,
+	url(img/border/button/bottom_right.png) no-repeat bottom right,
+	url(img/border/button/top.png) repeat-x top,
+	url(img/border/button/bottom.png) repeat-x bottom,
+	url(img/border/button/left.png) repeat-y left,
+	url(img/border/button/right.png) repeat-y right,
+	#c3c3c3;
+	border-radius: 2px;
 	font-size: 10px;
 	width: 54px;
 	height: 22px;
 	font-weight: bold;
 }
 
-#startMenu{
+#start_menu{
 	background:
-	url(img/windowBorderTopLeft.png) no-repeat top left,
-	url(img/windowBorderTopRight.png) no-repeat top right,
-	url(img/windowBorderBottomLeft.png) no-repeat bottom left,
-	url(img/windowBorderBottomRight.png) no-repeat bottom right,
-	url(img/windowBorderTop.png) repeat-x top,
-	url(img/windowBorderBottom.png) repeat-x bottom,
-	url(img/windowBorderLeft.png) repeat-y left,
-	url(img/windowBorderRight.png) repeat-y right;
-	background-color: #c3c3c3;
+	url(img/border/window/top_left.png) no-repeat top left,
+	url(img/border/window/top_right.png) no-repeat top right,
+	url(img/border/window/bottom_left.png) no-repeat bottom left,
+	url(img/border/window/bottom_right.png) no-repeat bottom right,
+	url(img/border/window/top.png) repeat-x top,
+	url(img/border/window/bottom.png) repeat-x bottom,
+	url(img/border/window/left.png) repeat-y left,
+	url(img/border/window/right.png) repeat-y right,
+	#c3c3c3;
 	position: absolute;
 	margin-left: 2px;
 	margin-bottom: -4px;
@@ -173,7 +228,7 @@ main{
 	display: none;
 }
 
-.startMenuOption{
+.start_menu_option{
 	height: 32px;
 	margin-left: 21px;
 	padding: 2px;
@@ -188,44 +243,35 @@ main{
 	padding: 4px;
 	flex-grow : 1;
 	background:
-	url(img/consoleTopLeft.png) no-repeat top left,
-	url(img/consoleTopRight.png) no-repeat top right,
-	url(img/consoleBottomLeft.png) no-repeat bottom left,
-	url(img/consoleBottomRight.png) no-repeat bottom right,
-	url(img/consoleTop.png) repeat-x top,
-	url(img/consoleBottom.png) repeat-x bottom,
-	url(img/consoleLeft.png) repeat-y left,
-	url(img/consoleRight.png) repeat-y right;
+	url(img/border/content_thick/top_left.png) no-repeat top left,
+	url(img/border/content_thick/top_right.png) no-repeat top right,
+	url(img/border/content_thick/bottom_left.png) no-repeat bottom left,
+	url(img/border/content_thick/bottom_right.png) no-repeat bottom right,
+	url(img/border/content_thick/top.png) repeat-x top,
+	url(img/border/content_thick/bottom.png) repeat-x bottom,
+	url(img/border/content_thick/left.png) repeat-y left,
+	url(img/border/content_thick/right.png) repeat-y right;
 	background-color: #000;
 	color: #ffffff;
 	height: 200px;
 }
 
-.fileViewer
+.file_viewer
 {
 	margin: 2px;
 	margin-top: 4px;
 	padding: 4px;
 	flex-grow : 1;
 	background:
-	url(img/consoleTopLeft.png) no-repeat top left,
-	url(img/consoleTopRight.png) no-repeat top right,
-	url(img/consoleBottomLeft.png) no-repeat bottom left,
-	url(img/consoleBottomRight.png) no-repeat bottom right,
-	url(img/consoleTop.png) repeat-x top,
-	url(img/consoleBottom.png) repeat-x bottom,
-	url(img/consoleLeft.png) repeat-y left,
-	url(img/consoleRight.png) repeat-y right;
+	url(img/border/content_thick/top_left.png) no-repeat top left,
+	url(img/border/content_thick/top_right.png) no-repeat top right,
+	url(img/border/content_thick/bottom_left.png) no-repeat bottom left,
+	url(img/border/content_thick/bottom_right.png) no-repeat bottom right,
+	url(img/border/content_thick/top.png) repeat-x top,
+	url(img/border/content_thick/bottom.png) repeat-x bottom,
+	url(img/border/content_thick/left.png) repeat-y left,
+	url(img/border/content_thick/right.png) repeat-y right;
 	background-color: #ffffff;
 	color: #000;
 	height: 256;
-}
-
-
-
-#topBar{
-	grid-area: topBar;
-	background: #000;
-	color: white;
-	padding: 4px;
 }
